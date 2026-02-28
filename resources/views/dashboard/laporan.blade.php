@@ -12,106 +12,131 @@
         <h1 class="anchor fw-bolder mb-5">Riwayat Laporan</h1>
       </div>
       <!--end::Heading-->
-      <!--begin::Block-->
-      <div class="my-5 table-responsive">
 
-        <div class="row mb-5">
-    
-          <!-- Total Permohonan -->
-          <div class="col-12 col-md-3 mb-3">
-              <div class="card bg-light-primary">
-                  <div class="card-body text-center">
-                      <h6 class="text-muted">Total Permohonan</h6>
-                      <h2 class="fw-bolder text-primary h1">
-                          {{ $letters->count() }}
-                      </h2>
-                  </div>
-              </div>
-          </div>
+      <!--begin::Block-->
+      <div class="my-5">
+        <div>
+          <div class="row mb-5">
       
-          <!-- TTE Selesai -->
-          <div class="col-12 col-md-3 mb-3">
-              <div class="card bg-light-danger">
-                  <div class="card-body text-center">
-                      <h6 class="text-muted">TTE Selesai</h6>
-                      <h2 class="fw-bolder text-danger h1">
-                          {{ $tte_done }}
-                      </h2>
-                  </div>
-              </div>
-          </div>
-      
-          <!-- Zoom Terjadwal -->
-          <div class="col-12 col-md-3 mb-3">
+            <!-- Total Permohonan -->
+            <div class="col-12 col-md-3 mb-3">
               <div class="card bg-light-info">
-                  <div class="card-body text-center">
-                      <h6 class="text-muted">Zoom Terjadwal</h6>
-                      <h2 class="fw-bolder text-info h1">
-                          {{ $zoom_done }}
-                      </h2>
+                <div class="card-body d-flex align-items-center justify-content-between">
+                  <div>
+                    <h3 class="text-muted mb-3">Total Permohonan</h3>
+                    <h2 class="fw-bolder text-info h1 mb-0">
+                      {{ $letters->count() }}
+                    </h2>
                   </div>
+                  <div class="text-primary">
+                    <i class="bi bi-archive fs-1"></i>
+                  </div>
+                </div>
               </div>
-          </div>
-      
-          <!-- Menunggu Proses -->
-          <div class="col-12 col-md-3 mb-3">
+            </div>
+        
+            <!-- TTE Selesai -->
+            <div class="col-12 col-md-3 mb-3">
+              <div class="card bg-light-success">
+                <div class="card-body d-flex align-items-center justify-content-between">
+                  <div>
+                    <h3 class="text-muted mb-3">TTE Selesai</h3>
+                    <h2 class="fw-bolder text-success h1 mb-0">
+                      {{ $tte_done }}
+                    </h2>
+                  </div>
+                  <div class="text-primary">
+                    <i class="bi bi-check-circle-fill fs-1"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Zoom Terjadwal -->
+            <div class="col-12 col-md-3 mb-3">
+              <div class="card bg-light-primary">
+                <div class="card-body d-flex align-items-center justify-content-between">
+                  <div>
+                    <h3 class="text-muted mb-3">Zoom Terjadwal</h3>
+                    <h2 class="fw-bolder text-primary h1 mb-0">
+                      {{ $zoom_done }}
+                    </h2>
+                  </div>
+                  <div class="text-primary">
+                    <i class="bi bi-camera-video-fill fs-1"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Menunggu Proses -->
+            <div class="col-12 col-md-3 mb-3">
               <div class="card bg-light-warning">
-                  <div class="card-body text-center">
-                      <h6 class="text-muted">Menunggu Proses</h6>
-                      <h2 class="fw-bolder text-warning h1">
-                          {{ $waiting }}
-                      </h2>
+                <div class="card-body d-flex align-items-center justify-content-between">
+                  <div>
+                    <h3 class="text-muted mb-3">Menunggu Proses</h3>
+                    <h2 class="fw-bolder text-warning h1 mb-0">
+                      {{ $waiting }}
+                    </h2>
                   </div>
+                  <div class="text-primary">
+                    <i class="bi bi-file-earmark-check-fill fs-1"></i>
+                  </div>
+                </div>
               </div>
+            </div>
+          
           </div>
-      
-      </div>
-      
-        
-        {{-- <form method="POST" class="row g-3 mb-5">
-          @csrf
-          <div class="col-auto">
-            <input type="month" name="month" class="form-control" value="">
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-info btn-purple">Filter</button>
-          </div>
-        </form> --}}
-        
-        <table id="myTable" class="table table-striped table-hover table-rounded border gs-7">
-          <thead>
-            <tr class="fw-bold fs-6 text-gray-800 border-bottom border-gray-200">
-              <th class="width: 30px">No</th>
-              <th style="min-width: 120px">Tanggal masuk</th>
-              <th style="min-width: 200px">Layanan</th>
-              <th style="min-width: 200px">Nama pemohon</th>
-              <th style="min-width: 200px">Instansi/Perangkat daerah</th>
-              <th>Satus</th>
-              <th style="min-width: 90px">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($letters as $l)
-            @php
-            
-            @endphp
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $l->submission_date }}</td>
-                <td>{{ $l->type }}</td>
-                <td>{{ $l->name }}</td>
-                <td>{{ $l->company }}</td>
-                <td>
-                  @if($l->status==1)
-                    <span class="badge badge-success">Selesai</span>
-                  @else
-                    <span class="badge badge-warning">Diproses</span>
-                  @endif
-                </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
+        </div>
+        <div class="table-responsive">
+          {{-- <form method="POST" class="row g-3 mb-5">
+            @csrf
+            <div class="col-auto">
+              <input type="month" name="month" class="form-control" value="">
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-info btn-purple">Filter</button>
+            </div>
+          </form> --}}
+          
+          <table id="myTable" class="table table-striped table-hover table-rounded border gs-7">
+            <thead>
+              <tr class="fw-bold fs-6 text-gray-800 border-bottom border-gray-200">
+                <th class="width: 30px">No</th>
+                <th style="min-width: 120px">Tanggal masuk</th>
+                <th style="min-width: 150px">Layanan</th>
+                <th style="min-width: 200px">Nama pemohon</th>
+                <th style="min-width: 200px">Instansi/Perangkat daerah</th>
+                <th>Satus</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($letters as $l)
+              @php
+              
+              @endphp
+              <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $l->submission_date }}</td>
+                  <td>{{ $l->type }}</td>
+                  <td>{{ $l->name }}</td>
+                  <td>{{ $l->company }}</td>
+                  <td>
+                    @if($l->status==1)
+                      <span class="badge badge-success">Selesai</span>
+                    @else
+                      <span class="badge badge-warning">Diproses</span>
+                    @endif
+                  </td>
+                  <td>
+                    <a href="#" class="btn btn-icon btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#edit" onclick="edit({{ $l->id }})"><i class="bi bi-pencil-fill"></i></a>
+                  </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
       <!--end::Block-->
     </div>
@@ -124,7 +149,7 @@
   <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title" id="et">Edit persetujuan</h3>
+          <h3 class="modal-title" id="et">Edit pengajuan</h3>
           <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
             <i class="bi bi-x-lg"></i>
           </div>
@@ -134,115 +159,92 @@
           <input type="hidden" id="eid" name="id">
           <div class="modal-body">
             <div class="row g-9">
-              <div class="col-12">
-                <div class="d-flex">
-                  <p class="badge badge-primary fs-4 mx-auto">
-                    Anda sebagai approver level <span id="level"></span>
-                  </p>
-                </div>
-                <br>
-                <label class="required fw-bold mb-2">Status verivikasi</label>
-                <select class="form-control form-select" name="status" required>
-                  <option value="pending">Pending</option>
-                  <option value="approved">Approved</option>
-                  <option value="rejected">Rejected</option>
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2">Nama pemohon :</label>
+                <input type="text" class="form-control" name="name" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2">Gender :</label>
+                <select class="form-control form-select" name="gender" required>
+                  <option value="L">Laki-laki</option>
+                  <option value="P">Perempuan</option>
                 </select>
               </div>
-              <div class="col-12">
-                <label class="required fw-bold mb-2">Catatan</label>
-                <input type="text" class="form-control" name="comment" required>
+              <div class="col-12 col-md-6">
+                <label class="fw-bold mb-2">Jabatan :</label>
+                <input type="text" class="form-control" name="position">
               </div>
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2">Tanggal permohonan :</label>
+                <input type="date" class="form-control" name="submission_date" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2">Perangkat daerah :</label>
+                <input type="text" class="form-control" name="company" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2">Jenis TTE :</label>
+                <select class="form-control form-select" name="type" required>
+                  <option value="Permintaan TTE Baru">Permintaan TTE Baru</option>
+                  <option value="Membuat Pass Phrase">Membuat Pass Phrase</option>
+                  <option value="Reset Pass Phrase">Reset Pass Phrase</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2 d-block">Status :</label>
+              
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="statusSwitch" name="status" value="1" onchange="updateStatus(this)">
+                  <label class="form-check-label fw-bold" id="statusLabel" for="statusSwitch">Diproses</label>
+                </div>
+              </div>
+              <style>
+                #statusSwitch {background-color: #ffc107;border-color: #ffc107;}
+                #statusSwitch:checked {background-color: #198754;border-color: #198754;}
+              </style>
+
             </div>
           </div>
           <div class="modal-footer">
             <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary" name="submit" value="update">Simpan</button>
+            <button type="submit" class="btn btn-success" name="submit" value="update">Simpan</button>
           </div>
         </form>
       </div>
   </div>
 </div>
 
-<div class="modal fade" tabindex="-1" id="foto">
-  <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="ft">View image</h3>
-          <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-            <i class="bi bi-x-lg"></i>
-          </div>
-        </div>
-        <div class="modal-body">
-          <img class="rounded" id="img-view" src="" style="width:100%">
-        </div>
-      </div>
-  </div>
-</div>
-
-<div class="modal fade" tabindex="-1" id="map">
-  <div class="modal-dialog modal-md modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Lokasi</h3>
-        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
-             data-bs-dismiss="modal" aria-label="Close">
-          <i class="bi bi-x-lg"></i>
-        </div>
-      </div>
-
-      <div class="modal-body p-4">
-        <div id="map-view" class="rounded" style="width:100%; height:400px;"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script type="text/javascript">
-  function foto(image){
-    $("#img-view").attr("src","/storage/img/absent/"+image);
+  function updateStatus(el) {
+    const label = document.getElementById("statusLabel");
+    if (el.checked) {
+      label.textContent = "Selesai";
+      el.value = "1";
+    } else {
+      label.textContent = "Diproses";
+      el.value = "0";
+    }
   }
   function edit(id){
     $.ajax({
-      url: "/api/reservation_approval/"+id,
+      url: "/api/letter/"+id,
       type: 'GET',
       dataType: 'json', // added data type
       success: function(response) {
         var mydata = response.data;
         $('#edit input[name="id"]').val(id);
-        $('#edit input[name="comment"]').val(mydata.comment);
-        $('#edit select[name="status"]').val(mydata.status);
-        $("#level").text(mydata.approval_level);
+        $('#edit input[name="name"]').val(mydata.name);
+        $('#edit select[name="gender"]').val(mydata.gender);
+        $('#edit input[name="position"]').val(mydata.position);
+        $('#edit input[name="submission_date"]').val(mydata.submission_date);
+        $('#edit input[name="company"]').val(mydata.company);
+        $('#edit select[name="type"]').val(mydata.type);
+        // $('#edit select[name="status"]').val(mydata.status);
+        $('#edit input[name="status"]').prop('checked', mydata.status == 1);
       }
     });
-  }
-
-  let leafletMap;
-  let marker;
-
-  function map(lat, lng) {
-    // buka modal
-    $('#map').modal('show');
-
-    // delay dikit biar modal kebuka dulu
-    setTimeout(() => {
-      if (!leafletMap) {
-        leafletMap = L.map('map-view').setView([lat, lng], 15);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap'
-        }).addTo(leafletMap);
-
-        marker = L.marker([lat, lng]).addTo(leafletMap);
-      } else {
-        leafletMap.setView([lat, lng], 15);
-        marker.setLatLng([lat, lng]);
-      }
-
-      leafletMap.invalidateSize();
-    }, 300);
   }
 </script>
 

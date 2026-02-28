@@ -24,15 +24,8 @@ class DashboardLetter extends Controller
     public function report(){    
         
         $done = Letter::where('status', 1)->count();
-    
-        $tte_done = Letter::where('status', 1)
-            ->where('type', '!=', 'Booking Zoom')
-            ->count();
-    
-        $zoom_done = Letter::where('status', 1)
-            ->where('type', 'Booking Zoom')
-            ->count();
-    
+        $tte_done = Letter::where('status', 1)->where('type', '!=', 'Booking Zoom')->count();
+        $zoom_done = Letter::where('status', 1)->where('type', 'Booking Zoom')->count();
         $waiting = Letter::where('status', 0)->count();
             
         return view('dashboard.laporan', [
@@ -51,8 +44,10 @@ class DashboardLetter extends Controller
             $res = $this->store($request);
             return back()->with($res['status'], $res['message']);
         }
-
-
+        if ($request->submit == 'update') {
+            $res = $this->update($request);
+            return back()->with($res['status'], $res['message']);
+        }
         return back()->with('info', 'Submit not found');
     }
 
@@ -70,5 +65,29 @@ class DashboardLetter extends Controller
         Letter::create($validatedData);
         return ['status'=>'success','message'=>'Data berhasil disimpan'];
 
+    }
+
+    public function update(Request $request){
+        $validatedData = $request->validate([
+            'id'=>'required|numeric',
+            'gender'=>'required',
+            'position'=>'nullable',
+            'submission_date'=>'required',
+            'company'=>'required',
+            'type'=>'required',
+            'status'=>'required'
+        ]);
+        
+        $letter = Letter::find($request->id);
+
+        //Check if the data is found
+        if(!$letter){
+            return ['status'=>'error','message'=>'Data tidak ditemukan'];
+        }
+        
+        // Update data
+        $letter->update($validatedData);    
+        return ['status'=>'success','message'=>'Data berhasil disimpan'];
+        
     }
 }
