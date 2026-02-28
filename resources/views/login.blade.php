@@ -7,7 +7,7 @@
     <!--begin::Wrapper-->
     <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
       <div class="row mb-10">
-        {{-- <img alt="Logo" src="/assets/img/logo-horizontal.webp" class="h-50px w-auto mx-auto" /> --}}
+        <img alt="Logo" src="/assets/img/logo.png" class="h-50px w-auto mx-auto mb-10" />
         <h1 class="text-center">Sistem TTE & Zoom</h1>
       </div>
       <!--begin::Form-->

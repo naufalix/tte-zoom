@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="modal-footer p-0">
-            <button type="submit" class="btn btn-primary" name="submit" value="store">Simpan</button>
+            <button type="submit" class="btn btn-success" name="submit" value="store">Simpan</button>
           </div>
         </form> 
       </div>

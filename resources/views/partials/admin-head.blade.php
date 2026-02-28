@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="{{Request::url()}}" />
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="/assets/img/favicon.png" />
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -61,8 +61,8 @@
             margin: 8px 12px 8px 0px;
         }
 
-        .bg-purple, .btn-purple, .page-item.active .page-link{
-            background: linear-gradient(to top right, #8e62a9, #8e62a9);
+        .page-item.active .page-link{
+            background: linear-gradient(to top right, #50cd89, #50cd89);
         }
 
     </style>

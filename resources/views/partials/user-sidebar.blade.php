@@ -3,7 +3,7 @@
           <div class="docs-aside-logo flex-column-auto h-75px" id="kt_docs_aside_logo">
             <!--begin::Link-->
             <a href="/admin" class="text-dark fs-2 fw-bold">
-              <img alt="Logo" src="/assets/img/logo-horizontal.png" class="h-30px" />
+              <img alt="Logo" src="/assets/img/logo.png" class="h-30px" />
             </a>
             <!--end::Link-->
           </div>

@@ -19,7 +19,7 @@
                 <!--begin::Logo-->
                 <div class="d-flex d-lg-none align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
                   <a href="#">
-                    <img alt="Logo" src="/assets/img/logo-horizontal.webp" class="h-30px" />
+                    <img alt="Logo" src="/assets/img/logo.png" class="h-30px" />
                   </a>
                 </div>
                 <!--end::Logo-->
