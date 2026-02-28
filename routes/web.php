@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Dashboard\DashboardHome;
 use App\Http\Controllers\Dashboard\DashboardLetter;
@@ -19,3 +20,6 @@ Route::group(['prefix'=> 'dashboard'], function(){
     Route::post('/booking-zoom', [DashboardLetter::class, 'postHandler']);
     Route::post('/laporan', [DashboardLetter::class, 'postHandler']);
 });
+
+// API
+Route::get('/api/letter/{letter:id}', [APIController::class, 'letter']);
