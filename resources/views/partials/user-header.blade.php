@@ -18,8 +18,12 @@
                 <!--end::Aside toggle-->
                 <!--begin::Logo-->
                 <div class="d-flex d-lg-none align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
-                  <a href="#">
-                    <img alt="Logo" src="/assets/img/logo.png" class="h-30px" />
+                  <a href="/admin" class="fs-2 fw-bold d-flex">
+                    <img alt="Logo" src="/assets/img/logo.png" class="h-30px my-auto" />
+                    <span class="text-dark ms-3 mb-1" style="line-height: 18px">
+                      <i class="text-dark">Menuju Masyarakat</i><br>
+                      <i class="text-dark">Informasi Indonesia</i>
+                    </span>
                   </a>
                 </div>
                 <!--end::Logo-->
