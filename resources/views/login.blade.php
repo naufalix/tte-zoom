@@ -10,8 +10,7 @@
         <div class="d-flex mx-auto mb-10 justify-content-center">
           <img alt="Logo" src="/assets/img/logo.png" class="h-50px w-auto" />
           <span class="text-dark ms-3 my-auto fw-bold" style="line-height: 20px">
-            <i class="text-dark">Menuju Masyarakat</i><br>
-            <i class="text-dark">Informasi Indonesia</i>
+            <i class="text-dark">Malang Makmur</i>
           </span>
         </div> 
         <h1 class="text-center">Sistem TTE & Zoom</h1>

@@ -5,7 +5,7 @@
             <a href="/admin" class="fs-2 fw-bold d-flex">
               <img alt="Logo" src="/assets/img/logo.png" class="h-30px my-auto" />
               <span class="text-dark ms-3 mb-1" style="line-height: 20px">
-                <i class="text-dark">Menuju Masyarakat Informasi Indonesia</i>
+                <i class="text-dark">Malang Makmur</i>
               </span>
             </a>
             <!--end::Link-->
