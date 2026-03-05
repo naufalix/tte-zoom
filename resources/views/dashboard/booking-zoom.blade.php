@@ -37,6 +37,10 @@
                   <input type="date" class="form-control" name="submission_date" required>
                 </div>
                 <div class="mb-5 col-12 col-md-6">
+                  <label class="form-label fs-6 fw-bolder text-dark">Waktu Meeting :</label>
+                  <input type="time" class="form-control" name="hour" required>
+                </div>
+                <div class="mb-5 col-12 col-md-6">
                   <label class="form-label fs-6 fw-bolder text-dark">Perangkat daerah :</label>
                   <input type="text" class="form-control" name="company" required placeholder="Desa Lowokwaru">
                 </div>

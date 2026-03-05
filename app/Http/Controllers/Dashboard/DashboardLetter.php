@@ -58,6 +58,7 @@ class DashboardLetter extends Controller
             'gender'=>'required',
             'position'=>'nullable',
             'submission_date'=>'required',
+            'hour'=>'nullable',
             'company'=>'required',
             'type'=>'required'
         ]);
@@ -73,6 +74,7 @@ class DashboardLetter extends Controller
             'gender'=>'required',
             'position'=>'nullable',
             'submission_date'=>'required',
+            'hour'=>'nullable',
             'company'=>'required',
             'type'=>'required',
             'status'=>'required'

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('position')->nullable();
             $table->date('submission_date');
+            $table->string('hour')->nullable();
             $table->string('company');
             $table->string('type');
             $table->string('status')->default(0);

@@ -119,7 +119,10 @@
               <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $l->submission_date }}</td>
-                  <td>{{ $l->type }}</td>
+                  <td>
+                    {{ $l->type }} 
+                    @if($l->hour) ({{ $l->hour }}) @endif              
+                  </td>
                   <td>{{ $l->name }}</td>
                   <td>{{ $l->company }}</td>
                   <td>
@@ -146,7 +149,7 @@
 </div>
 
 <div class="modal fade" tabindex="-1" id="edit">
-  <div class="modal-dialog modal-md">
+  <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title" id="et">Edit pengajuan</h3>
@@ -164,19 +167,23 @@
                 <input type="text" class="form-control" name="name" required>
               </div>
               <div class="col-12 col-md-6">
+                <label class="fw-bold mb-2">Jabatan :</label>
+                <input type="text" class="form-control" name="position">
+              </div>
+              <div class="col-12 col-md-4">
                 <label class="required fw-bold mb-2">Gender :</label>
                 <select class="form-control form-select" name="gender" required>
                   <option value="L">Laki-laki</option>
                   <option value="P">Perempuan</option>
                 </select>
               </div>
-              <div class="col-12 col-md-6">
-                <label class="fw-bold mb-2">Jabatan :</label>
-                <input type="text" class="form-control" name="position">
-              </div>
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-4">
                 <label class="required fw-bold mb-2">Tanggal permohonan :</label>
                 <input type="date" class="form-control" name="submission_date" required>
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="fw-bold mb-2">Jam meeting :</label>
+                <input type="time" class="form-control" name="hour">
               </div>
               <div class="col-12 col-md-6">
                 <label class="required fw-bold mb-2">Perangkat daerah :</label>
@@ -188,12 +195,19 @@
                   <option value="Permintaan TTE Baru">Permintaan TTE Baru</option>
                   <option value="Membuat Pass Phrase">Membuat Pass Phrase</option>
                   <option value="Reset Pass Phrase">Reset Pass Phrase</option>
+                  <option value="Booking Zoom">Booking Zoom</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="required fw-bold mb-2">Status</label>
+                <select class="form-control form-select" name="status" required>
+                  <option value="0">Diproses</option>
+                  <option value="1">Selesai</option>
                 </select>
               </div>
 
-              <div class="col-12 col-md-6">
+              {{-- <div class="col-12 col-md-6">
                 <label class="required fw-bold mb-2 d-block">Status :</label>
-              
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" id="statusSwitch" name="status" value="1" onchange="updateStatus(this)">
                   <label class="form-check-label fw-bold" id="statusLabel" for="statusSwitch">Diproses</label>
@@ -202,7 +216,7 @@
               <style>
                 #statusSwitch {background-color: #ffc107;border-color: #ffc107;}
                 #statusSwitch:checked {background-color: #198754;border-color: #198754;}
-              </style>
+              </style> --}}
 
             </div>
           </div>
@@ -239,6 +253,7 @@
         $('#edit select[name="gender"]').val(mydata.gender);
         $('#edit input[name="position"]').val(mydata.position);
         $('#edit input[name="submission_date"]').val(mydata.submission_date);
+        $('#edit input[name="hour"]').val(mydata.hour);
         $('#edit input[name="company"]').val(mydata.company);
         $('#edit select[name="type"]').val(mydata.type);
         // $('#edit select[name="status"]').val(mydata.status);
