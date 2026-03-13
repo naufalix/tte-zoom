@@ -25,7 +25,7 @@
             <button class="btn btn-icon rounded-circle mb-3" style="border: 1px solid #f8285a">
               <i class="bi bi-chat-left-dots-fill fs-4 "></i>
             </button>
-            <h2>Booking Zoom</h2>
+            <h2>Zoom</h2>
             <p class="text-dark">Layanan Pemohonan dan Penjadwalan Layanan Zoom</p>
           </div>
         </a>

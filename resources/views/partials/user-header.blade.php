@@ -20,7 +20,7 @@
                 <div class="d-flex d-lg-none align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
                   <a href="/admin" class="fs-2 fw-bold d-flex">
                     <img alt="Logo" src="/assets/img/logo.png" class="h-30px my-auto" />
-                    <span class="text-dark ms-3 mb-1" style="line-height: 18px">
+                    <span class="text-dark ms-3 mt-1" style="line-height: 18px">
                       <i class="text-dark">Malang Makmur</i>
                     </span>
                   </a>

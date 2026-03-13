@@ -3,26 +3,26 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Letter;
+use App\Models\Zoom;
 use Illuminate\Http\Request;
 
-class DashboardLetter extends Controller
+class DashboardZoom extends Controller
 {
     
-    public function index(){
-        return view('dashboard.tte-elektronik',[
-            "title" => "Dashboard | TTE Elektronik"
+    public function index(){    
+        return view('dashboard.booking-zoom',[
+            "title" => "Dashboard | Booking Zoom"
         ]);
     }
 
     public function report(){    
         
-        $done = Letter::where('status', 1)->count();
-        $waiting = Letter::where('status', 0)->count();
+        $done = Zoom::where('status', 1)->count();
+        $waiting = Zoom::where('status', 0)->count();
             
-        return view('dashboard.laporan-tte', [
-            "title" => "Dashboard | Laporan TTE",
-            "letters" => Letter::orderBy('id', 'desc')->get(),
+        return view('dashboard.laporan-zoom', [
+            "title" => "Dashboard | Laporan Zoom",
+            "zooms" => Zoom::orderBy('id', 'desc')->get(),
             "done" => $done,
             "waiting" => $waiting
         ]);
@@ -32,18 +32,18 @@ class DashboardLetter extends Controller
         $start = $request->month_start . '-01';
         $end = date("Y-m-t", strtotime($request->month_end . '-01'));
 
-        $letters = Letter::whereBetween('submission_date', [$start, $end])->orderBy('id', 'desc')->get();
-        $done = Letter::where('status', 1)->whereBetween('submission_date', [$start, $end])->count();
-        $waiting = Letter::where('status', 0)->whereBetween('submission_date', [$start, $end])->count();
+        $zooms = Zoom::whereBetween('submission_date', [$start, $end])->orderBy('id', 'desc')->get();
+        $done = Zoom::where('status', 1)->whereBetween('submission_date', [$start, $end])->count();
+        $waiting = Zoom::where('status', 0)->whereBetween('submission_date', [$start, $end])->count();
 
-        return view('dashboard.laporan-tte', [
-            "title" => "Dashboard | Laporan TTE",
-            "letters" => $letters,
+        return view('dashboard.laporan-zoom', [
+            "title" => "Dashboard | Laporan Zoom",
+            "zooms" => $zooms,
             "done" => $done,
             "waiting" => $waiting
         ]);
     }
-
+    
     public function postHandler(Request $request){
         if ($request->submit == 'store') {
             $res = $this->store($request);
@@ -66,11 +66,12 @@ class DashboardLetter extends Controller
             'gender'=>'required',
             'position'=>'nullable',
             'submission_date'=>'required',
+            'hour'=>'nullable',
             'company'=>'required',
             'type'=>'required'
         ]);
         
-        Letter::create($validatedData);
+        Zoom::create($validatedData);
         return ['status'=>'success','message'=>'Data berhasil disimpan'];
 
     }
@@ -80,22 +81,21 @@ class DashboardLetter extends Controller
             'id'=>'required|numeric',
             'name'=>'required',
             'gender'=>'required',
-            'position'=>'nullable',
             'submission_date'=>'required',
+            'hour'=>'nullable',
             'company'=>'required',
-            'type'=>'required',
             'status'=>'required'
         ]);
         
-        $letter = Letter::find($request->id);
+        $zoom = Zoom::find($request->id);
 
         //Check if the data is found
-        if(!$letter){
+        if(!$zoom){
             return ['status'=>'error','message'=>'Data tidak ditemukan'];
         }
         
         // Update data
-        $letter->update($validatedData);    
+        $zoom->update($validatedData);    
         return ['status'=>'success','message'=>'Data berhasil disimpan'];
         
     }

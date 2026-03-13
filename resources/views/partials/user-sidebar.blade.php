@@ -4,7 +4,7 @@
             <!--begin::Link-->
             <a href="/admin" class="fs-2 fw-bold d-flex">
               <img alt="Logo" src="/assets/img/logo.png" class="h-30px my-auto" />
-              <span class="text-dark ms-3 mb-1" style="line-height: 20px">
+              <span class="text-dark ms-3 mt-1" style="line-height: 20px">
                 <i class="text-dark">Malang Makmur</i>
               </span>
             </a>
@@ -36,10 +36,23 @@
                     <span class="menu-title menu-icon"><i class="bi bi-chat-left-dots-fill fs-3 me-3"></i> Booking Zoom</span>
                   </a>
                 </div>
-                <div class="menu-item">
-                  <a class="menu-link py-2" href="/dashboard/laporan">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                  <span class="menu-link py-2">
                     <span class="menu-title menu-icon"><i class="bi bi-display fs-3 me-3"></i> Laporan</span>
-                  </a>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <div class="menu-sub menu-sub-accordion">    
+                    <div class="menu-item">
+                      <a class="menu-link py-1" href="/dashboard/laporan-tte">
+                        <i class="fa fa-file-text fs-3 me-3"></i><span class="menu-title">Laporan TTE</span>
+                      </a>
+                    </div>
+                    <div class="menu-item">
+                      <a class="menu-link py-1" href="/dashboard/laporan-zoom">
+                        <i class="bi bi-chat-left-dots-fill fs-3 me-3"></i><span class="menu-title">Laporan Zoom</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
               </div>

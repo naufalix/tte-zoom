@@ -45,9 +45,9 @@
                   <input type="text" class="form-control" name="company" required placeholder="Desa Lowokwaru">
                 </div>
                 <div class="mb-5 col-12 col-md-6">
-                  <label class="form-label fs-6 fw-bolder text-dark">Jenis TTE :</label>
+                  <label class="form-label fs-6 fw-bolder text-dark">Perihal :</label>
                   <select class="form-select" name="type" required>
-                    <option value="" disabled selected>- Pilih jenis -</option>
+                    <option value="" disabled selected>- Pilih perihal -</option>
                     <option value="Permintaan TTE Baru">Permintaan TTE Baru</option>
                     <option value="Membuat Pass Phrase">Membuat Pass Phrase</option>
                     <option value="Reset Pass Phrase">Reset Pass Phrase</option>
