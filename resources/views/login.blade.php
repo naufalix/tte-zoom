@@ -26,7 +26,7 @@
   </div>
   <!--end::Content-->
   <!--begin::Footer-->
-  <div class="d-flex flex-center flex-column-auto p-10">
+  <div class="d-flex flex-center flex-column-auto p-10 d-none">
     <!--begin::Links-->
     <div class="d-flex align-items-center fw-bold fs-6">
       <span>Developed by <a href="https://naufal.dev" class="text-muted text-hover-primary px-2">naufal.dev</a></span>
