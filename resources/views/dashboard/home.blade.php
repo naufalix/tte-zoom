@@ -33,15 +33,15 @@
     </div>
     <div class="col-12 col-md-4 mb-4">
       <div class="card">
-        <a href="/dashboard/laporan">
-          <div class="card-body">
-            <button class="btn btn-icon rounded-circle mb-3" style="border: 1px solid #f8285a">
-              <i class="bi bi-display fs-4 "></i>
-            </button>
-            <h2>Menu Laporan</h2>
-            <p class="text-dark">Melihat dan Meringkas Laporan Layanan</p>
-          </div>
-        </a>
+        <div class="card-body">
+          <button class="btn btn-icon rounded-circle mb-3" style="border: 1px solid #f8285a">
+            <i class="bi bi-display fs-4 "></i>
+          </button>
+          <h2>Menu Laporan</h2>
+          <p class="text-dark">Melihat dan Meringkas Laporan Layanan</p>
+          <a class="badge bg-success" href="/dashboard/laporan-tte">Laporan TTE</a>
+          <a class="badge bg-success" href="/dashboard/laporan-zoom">Laporan Zoom</a>
+        </div>
       </div>
     </div>
   </div>
