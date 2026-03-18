@@ -37,7 +37,7 @@
                       {{-- <a href="../dist/documentation/getting-started/changelog.html" class="badge fw-bold fs-9 px-2 ms-2 badge-white text-hover-primary shadow-sm">v1.0.0</a></h1> --}}
                       <span class="d-none d-lg-block bullet h-20px w-1px bg-secondary mx-4"></span>
                       <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-6 my-1">
-                        <li class="breadcrumb-item text-dark">{{explode("|",$title)[1]}}</li>
+                        <li class="breadcrumb-item text-dark">{{$title}}</li>
                       </ul>
                     </div>
                   </div>

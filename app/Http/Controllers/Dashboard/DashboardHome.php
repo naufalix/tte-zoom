@@ -10,7 +10,7 @@ class DashboardHome extends Controller
     public function index(){
         
         return view('dashboard.home',[
-            "title" => "Dashboard | Home"
+            "title" => "Sistem TTE & Zoom"
         ]);
     }
 

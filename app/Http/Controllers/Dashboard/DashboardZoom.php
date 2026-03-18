@@ -11,7 +11,7 @@ class DashboardZoom extends Controller
     
     public function index(){    
         return view('dashboard.booking-zoom',[
-            "title" => "Dashboard | Booking Zoom"
+            "title" => "Pengajuan Booking Zoom"
         ]);
     }
 
@@ -21,7 +21,7 @@ class DashboardZoom extends Controller
         $waiting = Zoom::where('status', 0)->count();
             
         return view('dashboard.laporan-zoom', [
-            "title" => "Dashboard | Laporan Zoom",
+            "title" => "Laporan Zoom",
             "zooms" => Zoom::orderBy('id', 'desc')->get(),
             "done" => $done,
             "waiting" => $waiting
@@ -37,7 +37,7 @@ class DashboardZoom extends Controller
         $waiting = Zoom::where('status', 0)->whereBetween('submission_date', [$start, $end])->count();
 
         return view('dashboard.laporan-zoom', [
-            "title" => "Dashboard | Laporan Zoom",
+            "title" => "Laporan Zoom (".$request->month_start." sampai ".$request->month_end.")",
             "zooms" => $zooms,
             "done" => $done,
             "waiting" => $waiting

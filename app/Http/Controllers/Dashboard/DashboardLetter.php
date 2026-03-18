@@ -11,7 +11,7 @@ class DashboardLetter extends Controller
     
     public function index(){
         return view('dashboard.tte-elektronik',[
-            "title" => "Dashboard | TTE Elektronik"
+            "title" => "Pengajuan TTE Elektronik"
         ]);
     }
 
@@ -21,7 +21,7 @@ class DashboardLetter extends Controller
         $waiting = Letter::where('status', 0)->count();
             
         return view('dashboard.laporan-tte', [
-            "title" => "Dashboard | Laporan TTE",
+            "title" => "Laporan TTE",
             "letters" => Letter::orderBy('id', 'desc')->get(),
             "done" => $done,
             "waiting" => $waiting
@@ -37,7 +37,7 @@ class DashboardLetter extends Controller
         $waiting = Letter::where('status', 0)->whereBetween('submission_date', [$start, $end])->count();
 
         return view('dashboard.laporan-tte', [
-            "title" => "Dashboard | Laporan TTE",
+            "title" => "Laporan TTE (".$request->month_start." sampai ".$request->month_end.")",
             "letters" => $letters,
             "done" => $done,
             "waiting" => $waiting
