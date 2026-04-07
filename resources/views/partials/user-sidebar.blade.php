@@ -3,10 +3,8 @@
           <div class="docs-aside-logo flex-column-auto h-75px" id="kt_docs_aside_logo">
             <!--begin::Link-->
             <a href="/admin" class="fs-2 fw-bold d-flex">
-              <img alt="Logo" src="/assets/img/logo.png" class="h-30px my-auto" />
-              <span class="text-dark ms-3 mt-1" style="line-height: 20px">
-                <i class="text-dark">Malang Makmur</i>
-              </span>
+              <img alt="Logo" src="/assets/img/logo.png" class="h-30px my-auto me-2" />
+              <img alt="Logo" src="/assets/img/logo-makmur.png" class="h-30px my-auto" />
             </a>
             <!--end::Link-->
           </div>

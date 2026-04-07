@@ -8,10 +8,8 @@
     <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
       <div class="row mb-10">
         <div class="d-flex mx-auto mb-10 justify-content-center">
-          <img alt="Logo" src="/assets/img/logo.png" class="h-50px w-auto" />
-          <span class="text-dark ms-3 my-auto fw-bold" style="line-height: 20px">
-            <i class="text-dark">Malang Makmur</i>
-          </span>
+          <img alt="Logo" src="/assets/img/logo.png" class="h-50px w-auto me-2" />
+          <img alt="Logo" src="/assets/img/logo-makmur.png" class="h-50px w-auto" />
         </div> 
         <h1 class="text-center">Sistem TTE & Zoom</h1>
       </div>
