@@ -114,7 +114,8 @@
                 @endif
               </td>
               <td>
-                <a href="#" class="btn btn-icon btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#edit" onclick="edit({{ $l->id }})"><i class="bi bi-pencil-fill"></i></a>
+                <a href="#" class="btn btn-icon btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#edit" onclick="edit({{ $l->id }})"><i class="bi bi-pencil-fill"></i></a>
+                <a href="#" class="btn btn-icon btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapus" onclick="hapus({{ $l->id }})"><i class="fa fa-times"></i></a>
               </td>
             </tr>
             @endforeach
@@ -225,6 +226,29 @@
   </div>
 </div>
 
+<div class="modal fade" tabindex="-1" id="hapus">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Hapus pengajuan</h3>
+          <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </div>
+        </div>
+        <form class="form" method="post" action="">
+          @csrf
+          <div class="modal-body text-center">
+            <input type="hidden" class="d-none" id="hi" name="id">
+            <p class="fw-bold mb-2 fs-4" id="hd">Apakah anda yakin ingin menghapus pengajuan ini?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-danger" name="submit" value="destroy">Hapus</button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
 
 <script type="text/javascript">
   // function updateStatus(el) {
@@ -254,6 +278,9 @@
         $('#edit select[name="status"]').val(mydata.status);
       }
     });
+  }
+  function hapus(id){
+    $("#hi").val(id);
   }
 </script>
 

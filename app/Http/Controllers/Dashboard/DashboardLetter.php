@@ -53,6 +53,10 @@ class DashboardLetter extends Controller
             $res = $this->update($request);
             return back()->with($res['status'], $res['message']);
         }
+        if ($request->submit == 'destroy') {
+            $res = $this->destroy($request);
+            return back()->with($res['status'], $res['message']);
+        }
         if ($request->submit == 'filter') {
             return $this->report_filter($request);
         }
@@ -72,7 +76,6 @@ class DashboardLetter extends Controller
         
         Letter::create($validatedData);
         return ['status'=>'success','message'=>'Data berhasil disimpan'];
-
     }
 
     public function update(Request $request){
@@ -97,6 +100,22 @@ class DashboardLetter extends Controller
         // Update data
         $letter->update($validatedData);    
         return ['status'=>'success','message'=>'Data berhasil disimpan'];
+    }
+
+    public function destroy(Request $request){
         
+        $validatedData = $request->validate([
+            'id' => 'required|numeric',
+        ]);
+        
+        $letter = Letter::find($request->id);
+        
+        // Check if the data is found
+        if (!$letter) {
+            return ['status' => 'error', 'message' => 'Data tidak ditemukan'];
+        }
+
+        $letter->delete();
+        return ['status' => 'success', 'message' => 'Data berhasil dihapus'];
     }
 }

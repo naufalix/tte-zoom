@@ -53,6 +53,10 @@ class DashboardZoom extends Controller
             $res = $this->update($request);
             return back()->with($res['status'], $res['message']);
         }
+        if ($request->submit == 'destroy') {
+            $res = $this->destroy($request);
+            return back()->with($res['status'], $res['message']);
+        }
         if ($request->submit == 'filter') {
             return $this->report_filter($request);
         }
@@ -73,7 +77,6 @@ class DashboardZoom extends Controller
         
         Zoom::create($validatedData);
         return ['status'=>'success','message'=>'Data berhasil disimpan'];
-
     }
 
     public function update(Request $request){
@@ -96,7 +99,23 @@ class DashboardZoom extends Controller
         
         // Update data
         $zoom->update($validatedData);    
-        return ['status'=>'success','message'=>'Data berhasil disimpan'];
+        return ['status'=>'success','message'=>'Data berhasil disimpan'];   
+    }
+
+    public function destroy(Request $request){
         
+        $validatedData = $request->validate([
+            'id' => 'required|numeric',
+        ]);
+        
+        $zoom = Zoom::find($request->id);
+        
+        // Check if the data is found
+        if (!$zoom) {
+            return ['status' => 'error', 'message' => 'Data tidak ditemukan'];
+        }
+
+        $zoom->delete();
+        return ['status' => 'success', 'message' => 'Data berhasil dihapus'];
     }
 }
